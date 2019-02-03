@@ -200,6 +200,7 @@ var systemsInit = func {
 	libraries.variousReset();
 	rmp.init();
 	acp.init();
+	ecam.ECAM_controller.init();
 }
 
 setlistener("/sim/signals/fdm-initialized", func {
