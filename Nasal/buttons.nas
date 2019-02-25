@@ -186,7 +186,7 @@ var ap1 = props.globals.getNode("/it-autoflight/output/ap1", 1);
 var ap2 = props.globals.getNode("/it-autoflight/output/ap2", 1);
 var athr = props.globals.getNode("/it-autoflight/output/athr", 1);
 
-var APPanel = { # Commented stuff because the more advanced disconnect logic is not yet available.
+var APPanel = {
 	AP1: func() {
 		if (dcEss.getValue() >= 25) {
 			if (!ap1.getBoolValue()) {
@@ -233,25 +233,29 @@ var APPanel = { # Commented stuff because the more advanced disconnect logic is 
 		}
 	},
 	APDisc: func() {
-		if (ap1.getBoolValue() or ap2.getBoolValue()) {
-			libraries.apOff("soft", 0);
-		} else {
-			if (getprop("/it-autoflight/sound/apoffsound") == 1 or getprop("/it-autoflight/sound/apoffsound2") == 1) {
-				setprop("/it-autoflight/sound/apoffsound", 0);
-				setprop("/it-autoflight/sound/apoffsound2", 0);
+		if (dcEss.getValue() >= 25) {
+			if (ap1.getBoolValue() or ap2.getBoolValue()) {
+				libraries.apOff("soft", 0);
+			} else {
+				if (getprop("/it-autoflight/sound/apoffsound") == 1 or getprop("/it-autoflight/sound/apoffsound2") == 1) {
+					setprop("/it-autoflight/sound/apoffsound", 0);
+					setprop("/it-autoflight/sound/apoffsound2", 0);
+				}
+				setprop("/it-autoflight/output/ap-warning", 0);
+				setprop("/ECAM/warnings/master-warning-light", 0);
 			}
-			setprop("/it-autoflight/output/ap-warning", 0);
-			setprop("/ECAM/warnings/master-warning-light", 0);
 		}
 	},
 	ATDisc: func() {
-		if (athr.getBoolValue()) {
-			libraries.athrOff("soft");
-			setprop("/ECAM/warnings/master-caution-light", 1);
-		} else {
-			if (getprop("/it-autoflight/output/athr-warning") == 1) {
-				setprop("/it-autoflight/output/athr-warning", 0);
-				setprop("/ECAM/warnings/master-caution-light", 0);
+		if (dcEss.getValue() >= 25) {
+			if (athr.getBoolValue()) {
+				libraries.athrOff("soft");
+				setprop("/ECAM/warnings/master-caution-light", 1);
+			} else {
+				if (getprop("/it-autoflight/output/athr-warning") == 1) {
+					setprop("/it-autoflight/output/athr-warning", 0);
+					setprop("/ECAM/warnings/master-caution-light", 0);
+				}
 			}
 		}
 	},
@@ -341,18 +345,22 @@ var APPanel = { # Commented stuff because the more advanced disconnect logic is 
 		}
 	},
 	HDGPush: func() {
-		if (fd1.getBoolValue() or fd2.getBoolValue() or ap1.getBoolValue() or ap2.getBoolValue()) {
-			setprop("/it-autoflight/input/lat", 1);
+		if (dcEss.getValue() >= 25) {
+			if (fd1.getBoolValue() or fd2.getBoolValue() or ap1.getBoolValue() or ap2.getBoolValue()) {
+				setprop("/it-autoflight/input/lat", 1);
+			}
 		}
 	},
 	HDGPull: func() {
-		if (fd1.getBoolValue() or fd2.getBoolValue() or ap1.getBoolValue() or ap2.getBoolValue()) {
-			if (latMode.getValue() == 0 or !showHDG.getBoolValue()) {
-				setprop("/it-autoflight/input/lat", 3);
-				showHDG.setBoolValue(1);
-			} else {
-				setprop("/it-autoflight/input/lat", 0);
-				showHDG.setBoolValue(1);
+		if (dcEss.getValue() >= 25) {
+			if (fd1.getBoolValue() or fd2.getBoolValue() or ap1.getBoolValue() or ap2.getBoolValue()) {
+				if (latMode.getValue() == 0 or !showHDG.getBoolValue()) {
+					setprop("/it-autoflight/input/lat", 3);
+					showHDG.setBoolValue(1);
+				} else {
+					setprop("/it-autoflight/input/lat", 0);
+					showHDG.setBoolValue(1);
+				}
 			}
 		}
 	},
