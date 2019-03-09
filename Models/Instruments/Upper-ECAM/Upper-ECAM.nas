@@ -237,7 +237,7 @@ var canvas_upperECAM_base = {
 			
 			if (line1c == "w") {
 				me["ECAML1"].setColor(0.8078,0.8039,0.8078);
-			} else if (line1c == "b") {
+			} else if (line1c == "c") {
 				me["ECAML1"].setColor(0.0901,0.6039,0.7176);
 			} else if (line1c == "g") {
 				me["ECAML1"].setColor(0.0509,0.7529,0.2941);
@@ -249,7 +249,7 @@ var canvas_upperECAM_base = {
 			
 			if (line2c == "w") {
 				me["ECAML2"].setColor(0.8078,0.8039,0.8078);
-			} else if (line2c == "b") {
+			} else if (line2c == "c") {
 				me["ECAML2"].setColor(0.0901,0.6039,0.7176);
 			} else if (line2c == "g") {
 				me["ECAML2"].setColor(0.0509,0.7529,0.2941);
@@ -261,7 +261,7 @@ var canvas_upperECAM_base = {
 			
 			if (line3c == "w") {
 				me["ECAML3"].setColor(0.8078,0.8039,0.8078);
-			} else if (line3c == "b") {
+			} else if (line3c == "c") {
 				me["ECAML3"].setColor(0.0901,0.6039,0.7176);
 			} else if (line3c == "g") {
 				me["ECAML3"].setColor(0.0509,0.7529,0.2941);
@@ -273,7 +273,7 @@ var canvas_upperECAM_base = {
 			
 			if (line4c == "w") {
 				me["ECAML4"].setColor(0.8078,0.8039,0.8078);
-			} else if (line4c == "b") {
+			} else if (line4c == "c") {
 				me["ECAML4"].setColor(0.0901,0.6039,0.7176);
 			} else if (line4c == "g") {
 				me["ECAML4"].setColor(0.0509,0.7529,0.2941);
@@ -285,7 +285,7 @@ var canvas_upperECAM_base = {
 			
 			if (line5c == "w") {
 				me["ECAML5"].setColor(0.8078,0.8039,0.8078);
-			} else if (line5c == "b") {
+			} else if (line5c == "c") {
 				me["ECAML5"].setColor(0.0901,0.6039,0.7176);
 			} else if (line5c == "g") {
 				me["ECAML5"].setColor(0.0509,0.7529,0.2941);
@@ -297,7 +297,7 @@ var canvas_upperECAM_base = {
 			
 			if (line6c == "w") {
 				me["ECAML6"].setColor(0.8078,0.8039,0.8078);
-			} else if (line6c == "b") {
+			} else if (line6c == "c") {
 				me["ECAML6"].setColor(0.0901,0.6039,0.7176);
 			} else if (line6c == "g") {
 				me["ECAML6"].setColor(0.0509,0.7529,0.2941);
@@ -309,7 +309,7 @@ var canvas_upperECAM_base = {
 			
 			if (line7c == "w") {
 				me["ECAML7"].setColor(0.8078,0.8039,0.8078);
-			} else if (line7c == "b") {
+			} else if (line7c == "c") {
 				me["ECAML7"].setColor(0.0901,0.6039,0.7176);
 			} else if (line7c == "g") {
 				me["ECAML7"].setColor(0.0509,0.7529,0.2941);
@@ -321,7 +321,7 @@ var canvas_upperECAM_base = {
 			
 			if (line8c == "w") {
 				me["ECAML8"].setColor(0.8078,0.8039,0.8078);
-			} else if (line8c == "b") {
+			} else if (line8c == "c") {
 				me["ECAML8"].setColor(0.0901,0.6039,0.7176);
 			} else if (line8c == "g") {
 				me["ECAML8"].setColor(0.0509,0.7529,0.2941);

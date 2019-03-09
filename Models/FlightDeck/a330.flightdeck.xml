@@ -1347,6 +1347,63 @@
 	</animation>
 	
 	<animation>
+		<type>select</type>
+		<object-name>ecam_clr_l_led</object-name>
+		<object-name>ecam_clr_r_led</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>ECAM/Lower/light/clr</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ecam_rcl</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<greater-than-equals>
+						<property>systems/electrical/bus/dc-ess</property>
+						<value>25</value>
+					</greater-than-equals>
+				</condition>
+				<command>nasal</command>
+				<script>ecam.ECAM_controller.recall();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ecam_clr_l</object-name>
+		<object-name>ecam_clr_r</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<greater-than-equals>
+						<property>systems/electrical/bus/dc-ess</property>
+						<value>25</value>
+					</greater-than-equals>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.LowerECAM.button("clr");</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
 		<type>pick</type>
 		<object-name>ecam_to_config</object-name>
 		<action>
@@ -5978,6 +6035,117 @@
 			<blue>0.8</blue>
 			<factor-prop>sim/model/lights/dome-light</factor-prop>
 		</emission>
+	</animation>
+	
+	<!-- Master Warning and Caution -->
+	<animation>
+		<type>select</type>
+		<object-name>master_warning_on</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>ECAM/warnings/master-warning-flash</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>master_caution_on</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>ECAM/warnings/master-caution-light</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>master_warning</object-name>
+		<object-name>master_warning_on</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<condition>
+					<greater-than-equals>
+						<property>systems/electrical/bus/dc-ess</property>
+						<value>25</value>
+					</greater-than-equals>
+				</condition>
+				<command>property-assign</command>
+				<property>ECAM/warnings/master-warning-light</property>
+				<value>0</value>
+			</binding>
+			<binding>
+				<condition>
+					<greater-than-equals>
+						<property>systems/electrical/bus/dc-ess</property>
+						<value>25</value>
+					</greater-than-equals>
+				</condition>
+				<command>nasal</command>
+				<script>
+					if (getprop("/it-autoflight/output/ap-warning") == 1) {
+						setprop("/it-autoflight/output/ap-warning", 0);
+					}
+					if (getprop("/it-autoflight/sound/apoffsound") == 1 or getprop("/it-autoflight/sound/apoffsound2") == 1) {
+						setprop("/it-autoflight/sound/apoffsound", 0);
+						setprop("/it-autoflight/sound/apoffsound2", 0);
+					}
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>master_caution</object-name>
+		<object-name>master_caution_on</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<condition>
+					<greater-than-equals>
+						<property>systems/electrical/bus/dc-ess</property>
+						<value>25</value>
+					</greater-than-equals>
+				</condition>
+				<command>property-assign</command>
+				<property>ECAM/warnings/master-caution-light</property>
+				<value>0</value>
+			</binding>
+			<binding>
+				<condition>
+					<greater-than-equals>
+						<property>systems/electrical/bus/dc-ess</property>
+						<value>25</value>
+					</greater-than-equals>
+				</condition>
+				<command>nasal</command>
+				<script>
+					if (getprop("/it-autoflight/output/athr-warning") == 1) {
+						setprop("/it-autoflight/output/athr-warning", 0);
+					}
+					
+					if (getprop("/sim/sound/warnings/chime") == 1) {
+						setprop("/sim/sound/warnings/chime", 0);
+					}
+				</script>
+			</binding>
+		</action>
 	</animation>
 
 </PropertyList>
