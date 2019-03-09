@@ -420,8 +420,6 @@
 		<object-name>ecam_apu_led</object-name>
 		<object-name>ecam_bleed_led</object-name>
 		<object-name>ecam_cond_led</object-name>
-		<object-name>ecam_clr_l_led</object-name>
-		<object-name>ecam_clr_r_led</object-name>
 		<object-name>ecam_c_b_led</object-name>
 		<object-name>ecam_door_led</object-name>
 		<object-name>ecam_elec_led</object-name>
@@ -435,8 +433,6 @@
 		<object-name>ecam_wheel_led</object-name>
 		<object-name>exped_led</object-name>
 		<object-name>hdg-text-test</object-name>
-		<object-name>master_caution_on</object-name>
-		<object-name>master_warning_on</object-name>
 		<object-name>qnh-test</object-name>
 		<object-name>rudder-trim-test</object-name>
 		<object-name>spd-text-test</object-name>
