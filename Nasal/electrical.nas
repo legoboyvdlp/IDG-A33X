@@ -237,7 +237,6 @@ var ELEC = {
 		setprop("/systems/electrical/outputs/stobe-lights", 0);
 		setprop("/systems/electrical/outputs/tacan", 0);
 		setprop("/systems/electrical/outputs/taxi-lights", 0);
-		setprop("/systems/electrical/outputs/transponder", 0);
 		setprop("/systems/electrical/outputs/turn-coordinator", 0);
 		
 		screens = [screen.new(name: "DU1", type:"LCD", max_watts:60, dim_watts:50, dim_prop:"/controls/lighting/DU/du1", elec_prop:"/systems/electrical/bus/ac-ess"),
@@ -731,7 +730,6 @@ var ELEC = {
 			setprop("/systems/electrical/outputs/stobe-lights", 0);
 			setprop("/systems/electrical/outputs/tacan", 0);
 			setprop("/systems/electrical/outputs/taxi-lights", 0);
-			setprop("/systems/electrical/outputs/transponder", 0);
 			setprop("/systems/electrical/outputs/turn-coordinator", 0);
 			setprop("/controls/lighting/fcu-panel-norm", 0);
 			setprop("/controls/lighting/main-panel-norm", 0);
@@ -767,7 +765,6 @@ var ELEC = {
 			setprop("/systems/electrical/outputs/stobe-lights", dc_volt_std);
 			setprop("/systems/electrical/outputs/tacan", dc_volt_std);
 			setprop("/systems/electrical/outputs/taxi-lights", dc_volt_std);
-			setprop("/systems/electrical/outputs/transponder", dc_volt_std);
 			setprop("/systems/electrical/outputs/turn-coordinator", dc_volt_std);
 			setprop("/controls/lighting/fcu-panel-norm", getprop("/controls/lighting/fcu-panel-knb"));
 			setprop("/controls/lighting/main-panel-norm", getprop("/controls/lighting/main-panel-knb"));

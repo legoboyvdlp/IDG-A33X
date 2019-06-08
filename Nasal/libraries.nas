@@ -202,6 +202,7 @@ var systemsInit = func {
 	libraries.variousReset();
 	rmp.init();
 	acp.init();
+	atc.init();
 }
 
 setlistener("/sim/signals/fdm-initialized", func {
